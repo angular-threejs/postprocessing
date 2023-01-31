@@ -217,6 +217,7 @@ export class NgtpEffectComposer extends NgtRxStore implements OnInit {
                 ) {
                     effectPass = new EffectPass(camera, ...effects);
                     effectPass.renderToScreen = true;
+                    composer.addPass(effectPass);
                     if (normalPass) normalPass.enabled = true;
                     if (downSamplingPass) downSamplingPass.enabled = true;
                 }

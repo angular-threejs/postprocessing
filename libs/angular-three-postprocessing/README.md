@@ -1,7 +1,15 @@
-# angular-three-postprocessing
+# Postprocessing for Angular Three using postprocessing
 
-This library was generated with [Nx](https://nx.dev).
+## Installation
 
-## Running unit tests
+```shell
+ng add angular-three-postprocessing
+```
 
-Run `nx test angular-three-postprocessing` to execute the unit tests.
+## Documentations
+
+Read more about Angular Three Postprocessing usages in [TBD: Documentations](#)
+
+## Contributions
+
+Contributions are welcomed

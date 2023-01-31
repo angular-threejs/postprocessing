@@ -1,4 +1,4 @@
-import { Component, inject, InjectionToken, Input, OnInit } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, inject, InjectionToken, Input, OnInit } from '@angular/core';
 import { RxActionFactory } from '@rx-angular/state/actions';
 import { extend, getLocalState, injectNgtRef, NgtRxStore, NgtStore, startWithUndefined } from 'angular-three';
 import { DepthDownsamplingPass, EffectComposer, EffectPass, NormalPass, RenderPass } from 'postprocessing';
@@ -51,6 +51,7 @@ function effectComposerApiFactory(composer: NgtpEffectComposer) {
         { provide: NGTP_EFFECT_COMPOSER_API, useFactory: effectComposerApiFactory, deps: [NgtpEffectComposer] },
         RxActionFactory,
     ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class NgtpEffectComposer extends NgtRxStore implements OnInit {
     @Input() composerRef = injectNgtRef<Group>();

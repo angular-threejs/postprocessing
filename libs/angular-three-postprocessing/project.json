@@ -21,6 +21,16 @@
             },
             "defaultConfiguration": "production"
         },
+        "package": {
+            "executor": "nx:run-commands",
+            "options": {
+                "commands": [
+                    "npx nx build angular-three-postprocessing",
+                    "npx nx build angular-three-postprocessing-plugin"
+                ],
+                "parallel": false
+            }
+        },
         "test": {
             "executor": "@nrwl/jest:jest",
             "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
@@ -45,6 +55,13 @@
                     "libs/angular-three-postprocessing/effects/**/*.ts",
                     "libs/angular-three-postprocessing/effects/**/*.html"
                 ]
+            }
+        },
+        "publish": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "npm publish",
+                "cwd": "dist/libs/angular-three-postprocessing"
             }
         }
     },

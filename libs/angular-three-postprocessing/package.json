@@ -25,7 +25,8 @@
         "@angular/common": "^15.1.0",
         "@angular/core": "^15.1.0",
         "angular-three": "^1.0.0",
-        "postprocessing": "^6.0.0"
+        "postprocessing": "^6.0.0",
+        "three": "0.148.0"
     },
     "dependencies": {
         "@nrwl/devkit": "^15.0.0",

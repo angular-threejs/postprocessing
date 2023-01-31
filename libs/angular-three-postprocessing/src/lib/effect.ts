@@ -75,7 +75,7 @@ export function componentInputsToCombinedStream(
     return combineLatest(
         inputs.reduce((combined, input) => {
             let input$ = component.select(input);
-            if (component.get(input) !== undefined) {
+            if (component.get(input) === undefined) {
                 input$ = input$.pipe(startWithUndefined());
             }
             combined[input] = input$;

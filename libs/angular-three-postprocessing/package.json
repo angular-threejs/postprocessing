@@ -24,6 +24,7 @@
     "peerDependencies": {
         "@angular/common": "^15.1.0",
         "@angular/core": "^15.1.0",
+        "angular-three": "^1.0.0",
         "postprocessing": "^6.0.0"
     },
     "dependencies": {

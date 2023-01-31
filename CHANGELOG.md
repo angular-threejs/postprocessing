@@ -1,5 +1,13 @@
 
 
+### [1.0.2](https://github.com/angular-threejs/postprocessing/compare/1.0.1...1.0.2) (2023-01-31)
+
+
+### Bug Fixes
+
+* add effectPass to composer ([4111cd8](https://github.com/angular-threejs/postprocessing/commit/4111cd80205295007c16abe4ced2285d2f34b49a))
+* adjust three peer dep ([b5f460b](https://github.com/angular-threejs/postprocessing/commit/b5f460b2eb8d906ec1e92986fb3ba6c45af180eb))
+
 ### [1.0.1](https://github.com/angular-threejs/postprocessing/compare/1.0.0...1.0.1) (2023-01-31)
 
 

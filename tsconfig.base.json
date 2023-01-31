@@ -16,6 +16,7 @@
         "baseUrl": ".",
         "paths": {
             "angular-three-postprocessing": ["libs/angular-three-postprocessing/src/index.ts"],
+            "angular-three-postprocessing-plugin": ["libs/plugin/src/index.ts"],
             "angular-three-postprocessing/effects": ["libs/angular-three-postprocessing/effects/src/index.ts"]
         }
     },

@@ -27,7 +27,10 @@
         "postprocessing": "^6.0.0"
     },
     "dependencies": {
+        "@nrwl/devkit": "^15.0.0",
         "tslib": "^2.3.0"
     },
-    "sideEffects": false
+    "sideEffects": false,
+    "generators": "./plugin/generators.json",
+    "schematics": "./plugin/generators.json"
 }

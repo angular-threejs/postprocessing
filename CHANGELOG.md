@@ -1,5 +1,12 @@
 
 
+### [1.0.1](https://github.com/angular-threejs/postprocessing/compare/1.0.0...1.0.1) (2023-01-31)
+
+
+### Bug Fixes
+
+* pipe on startWithUndefined for undefined input ([96fd6e0](https://github.com/angular-threejs/postprocessing/commit/96fd6e09a3af4cd0548f817dea04df348338326f))
+
 ## 1.0.0 (2023-01-31)
 
 

@@ -19,38 +19,18 @@ export abstract class NgtpEffect<T extends Effect> extends NgtRxStore implements
     protected readonly store = inject(NgtStore);
 
     ngOnChanges(changes: SimpleChanges) {
-        if (changes['opacity']) delete changes['opacity'];
-        if (changes['blendFunction']) delete changes['blendFunction'];
-
         this.set((s) => ({
             ...s,
-            ...Object.entries(changes).reduce((props, [key, change]) => {
-                props[key] = change.currentValue;
-                return props;
-            }, {} as NgtAnyRecord),
+            ...simpleChangesToStateObject(changes, ['blendFunction', 'opacity']),
         }));
     }
 
     ngOnInit() {
-        const inputs = reflectComponentType(this.constructor as Type<any>)?.inputs.map((input) => input.propName) || [];
-        this.connect(
-            'effect',
-            combineLatest(
-                inputs.reduce((combined, input) => {
-                    let input$ = this.select(input);
-                    if (this.get(input) !== undefined) {
-                        input$ = input$.pipe(startWithUndefined());
-                    }
-                    combined[input] = input$;
-                    return combined;
-                }, {} as Record<string, Observable<any>>)
-            ),
-            (props) => {
-                delete props['__ngt_dummy__'];
-                delete props['effect'];
-                return new this.effectConstructor(props);
-            }
-        );
+        this.connect('effect', componentInputsToCombinedStream(this), (props) => {
+            delete props['__ngt_dummy__'];
+            delete props['effect'];
+            return new this.effectConstructor(props);
+        });
         this.configureBlendMode();
     }
 
@@ -70,4 +50,36 @@ export abstract class NgtpEffect<T extends Effect> extends NgtRxStore implements
             }
         );
     }
+}
+
+export function simpleChangesToStateObject(changes: SimpleChanges, keysToDelete: string[] = []) {
+    for (const key of keysToDelete) {
+        if (changes[key]) delete changes[key];
+    }
+
+    return Object.entries(changes).reduce((obj, [key, change]) => {
+        obj[key] = change.currentValue;
+        return obj;
+    }, {} as NgtAnyRecord);
+}
+
+export function componentInputsToCombinedStream(
+    component: NgtRxStore,
+    filterFn: (input: { propName: string; templateName: string }) => boolean = () => true
+): Observable<NgtAnyRecord> {
+    const inputs =
+        reflectComponentType(component.constructor as Type<any>)
+            ?.inputs.filter(filterFn)
+            .map((input) => input.propName) || [];
+
+    return combineLatest(
+        inputs.reduce((combined, input) => {
+            let input$ = component.select(input);
+            if (component.get(input) !== undefined) {
+                input$ = input$.pipe(startWithUndefined());
+            }
+            combined[input] = input$;
+            return combined;
+        }, {} as Record<string, Observable<any>>)
+    );
 }

@@ -1,4 +1,4 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, inject, InjectionToken, Input, OnInit } from '@angular/core';
 import { RxActionFactory } from '@rx-angular/state/actions';
 import { extend, getLocalState, injectNgtRef, NgtRxStore, NgtStore, startWithUndefined } from 'angular-three';
 import { DepthDownsamplingPass, EffectComposer, EffectPass, NormalPass, RenderPass } from 'postprocessing';
@@ -9,6 +9,36 @@ import { isWebGL2Available } from 'three-stdlib';
 
 extend({ Group });
 
+export interface NgtpEffectComposerApi {
+    composer: EffectComposer;
+    normalPass: NormalPass | null;
+    depthPass: DepthDownsamplingPass | null;
+    scene: THREE.Scene;
+    camera: THREE.Camera;
+    resolutionScale?: number;
+    select: NgtpEffectComposer['select'];
+    get: NgtpEffectComposer['get'];
+}
+
+export const NGTP_EFFECT_COMPOSER_API = new InjectionToken<NgtpEffectComposerApi>('NgtpEffectComposer API');
+
+function effectComposerApiFactory(composer: NgtpEffectComposer) {
+    const api = {} as NgtpEffectComposerApi;
+
+    Object.defineProperties(api, {
+        composer: { get: () => composer.get('entities')[0] },
+        normalPass: { get: () => composer.get('entities')[1] },
+        downSamplingPass: { get: () => composer.get('entities')[2] },
+        resolutionScale: { get: () => composer.get('resolutionScale') },
+        scene: { get: () => composer.get('activeScene') },
+        camera: { get: () => composer.get('activeCamera') },
+        select: { get: () => composer.select.bind(composer) },
+        get: { get: () => composer.get.bind(composer) },
+    });
+
+    return api;
+}
+
 @Component({
     selector: 'ngtp-effect-composer',
     standalone: true,
@@ -17,7 +47,10 @@ extend({ Group });
             <ng-content />
         </ngt-group>
     `,
-    providers: [RxActionFactory],
+    providers: [
+        { provide: NGTP_EFFECT_COMPOSER_API, useFactory: effectComposerApiFactory, deps: [NgtpEffectComposer] },
+        RxActionFactory,
+    ],
 })
 export class NgtpEffectComposer extends NgtRxStore implements OnInit {
     @Input() composerRef = injectNgtRef<Group>();

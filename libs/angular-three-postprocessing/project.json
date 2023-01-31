@@ -41,7 +41,9 @@
             "options": {
                 "lintFilePatterns": [
                     "libs/angular-three-postprocessing/**/*.ts",
-                    "libs/angular-three-postprocessing/**/*.html"
+                    "libs/angular-three-postprocessing/**/*.html",
+                    "libs/angular-three-postprocessing/effects/**/*.ts",
+                    "libs/angular-three-postprocessing/effects/**/*.html"
                 ]
             }
         }

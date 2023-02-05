@@ -1,5 +1,12 @@
 
 
+## [1.1.0](https://github.com/angular-threejs/postprocessing/compare/1.0.2...1.1.0) (2023-02-05)
+
+
+### Features
+
+* update peer dep ([f26bca6](https://github.com/angular-threejs/postprocessing/commit/f26bca6b0a02768404e6baf07cdd79b147b1ff87))
+
 ### [1.0.2](https://github.com/angular-threejs/postprocessing/compare/1.0.1...1.0.2) (2023-01-31)
 
 

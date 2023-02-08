@@ -1,5 +1,5 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA, inject, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { injectNgtRef, NgtArgs, NgtRef, NgtRxStore, NgtStore, startWithUndefined } from 'angular-three';
+import { injectNgtRef, NgtArgs, NgtRxStore, NgtStore, startWithUndefined } from 'angular-three';
 import { componentInputsToCombinedStream, simpleChangesToStateObject } from 'angular-three-postprocessing';
 import { LUT3DEffect } from 'postprocessing';
 import { combineLatest, map } from 'rxjs';
@@ -8,11 +8,9 @@ import { combineLatest, map } from 'rxjs';
     selector: 'ngtp-lut',
     standalone: true,
     template: `
-        <ng-container *args="[get('effect')]">
-            <ngt-primitive *ref="lutRef" />
-        </ng-container>
+        <ngt-primitive *args="[get('effect')]" [ref]="lutRef" />
     `,
-    imports: [NgtArgs, NgtRef],
+    imports: [NgtArgs],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     inputs: ['blendFunction', 'tetrahedralInterpolation'],
 })

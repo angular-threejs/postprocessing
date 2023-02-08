@@ -1,5 +1,5 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA, inject, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { injectNgtRef, NgtArgs, NgtRef, NgtRxStore } from 'angular-three';
+import { injectNgtRef, NgtArgs, NgtRxStore } from 'angular-three';
 import {
     componentInputsToCombinedStream,
     NGTP_EFFECT_COMPOSER_API,
@@ -12,11 +12,9 @@ import { combineLatest, map } from 'rxjs';
     selector: 'ngtp-ssao',
     standalone: true,
     template: `
-        <ng-container *args="[get('effect')]">
-            <ngt-primitive *ref="ssaoRef" />
-        </ng-container>
+        <ngt-primitive *args="[get('effect')]" [ref]="ssaoRef" />
     `,
-    imports: [NgtArgs, NgtRef],
+    imports: [NgtArgs],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     inputs: [
         'blendFunction',

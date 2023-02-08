@@ -1,5 +1,12 @@
 
 
+## [1.3.0](https://github.com/angular-threejs/postprocessing/compare/1.2.0...1.3.0) (2023-02-08)
+
+
+### Features
+
+* revert to [ref] ([892a253](https://github.com/angular-threejs/postprocessing/commit/892a253f4743dc098087f3072c3c1ad89aea6118))
+
 ## [1.2.0](https://github.com/angular-threejs/postprocessing/compare/1.1.0...1.2.0) (2023-02-08)
 
 

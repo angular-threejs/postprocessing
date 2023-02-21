@@ -241,9 +241,34 @@ export class NgtpEffectComposer extends NgtRxStore implements OnInit {
                     const enabled = this.get('enabled');
                     const autoClear = this.get('autoClear');
                     const gl = this.store.get('gl');
+                    const size = this.store.get('size');
+                    const camera = this.store.get('camera');
                     if (composer && enabled) {
-                        gl.autoClear = autoClear;
-                        composer.render(delta);
+                        if (!gl.xr.isPresenting) {
+                            gl.autoClear = autoClear;
+                            composer.render(delta);
+                            return;
+                        }
+
+                        // manually handle XR
+                        gl.xr.enabled = false;
+                        // update camera with XRPose
+                        gl.xr.updateCamera(camera as THREE.PerspectiveCamera);
+
+                        // render stereo cameras
+                        const { cameras } = gl.xr.getCamera();
+                        cameras.forEach(({ viewport, matrixWorld, projectionMatrix }) => {
+                            gl.setViewport(viewport);
+                            camera.position.setFromMatrixPosition(matrixWorld);
+                            camera.projectionMatrix.copy(projectionMatrix);
+
+                            composer.render(delta);
+                        });
+
+                        // reset
+                        gl.setViewport(0, 0, size.width, size.height);
+                        gl.xr.updateCamera(camera as THREE.PerspectiveCamera);
+                        gl.xr.enabled = true;
                     }
                 },
                 enabled ? renderPriority : 0

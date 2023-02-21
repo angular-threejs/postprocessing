@@ -1,5 +1,12 @@
 
 
+## [1.4.0](https://github.com/angular-threejs/postprocessing/compare/1.3.0...1.4.0) (2023-02-21)
+
+
+### Features
+
+* adjusting effect composer before render for webXR ([9e76135](https://github.com/angular-threejs/postprocessing/commit/9e76135037063e92b2baf959bffddc9aeda27e6d))
+
 ## [1.3.0](https://github.com/angular-threejs/postprocessing/compare/1.2.0...1.3.0) (2023-02-08)
 
 

@@ -1,5 +1,12 @@
 
 
+## [1.5.0](https://github.com/angular-threejs/postprocessing/compare/1.4.0...1.5.0) (2023-02-21)
+
+
+### Features
+
+* add selection entry point ([eb5751b](https://github.com/angular-threejs/postprocessing/commit/eb5751bebb4c4244e1d80f8fddf6c970b24b5b25))
+
 ## [1.4.0](https://github.com/angular-threejs/postprocessing/compare/1.3.0...1.4.0) (2023-02-21)
 
 

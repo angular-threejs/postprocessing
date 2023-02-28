@@ -1,5 +1,12 @@
 
 
+### [1.5.1](https://github.com/angular-threejs/postprocessing/compare/1.5.0...1.5.1) (2023-02-28)
+
+
+### Bug Fixes
+
+* bump peer dep ([019d2a3](https://github.com/angular-threejs/postprocessing/commit/019d2a37fba5ca45db08bbbdc28c29235494f5d7))
+
 ## [1.5.0](https://github.com/angular-threejs/postprocessing/compare/1.4.0...1.5.0) (2023-02-21)
 
 

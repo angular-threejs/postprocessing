@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "start": "nx serve example",
     "release": "dotenv release-it --"
   },
   "private": true,
@@ -67,6 +68,7 @@
     "@rx-angular/state": "^2.0.0",
     "@swc/helpers": "~0.4.14",
     "angular-three": "^1.9.14",
+    "angular-three-soba": "^1.12.4",
     "postprocessing": "^6.30.2",
     "rxjs": "~7.8.0",
     "three": "^0.150.1",
@@ -75,4 +77,3 @@
     "zone.js": "0.13.0"
   }
 }
-

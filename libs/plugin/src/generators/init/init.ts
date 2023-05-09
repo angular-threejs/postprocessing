@@ -1,4 +1,4 @@
-import { addDependenciesToPackageJson, installPackagesTask, logger, readJson, Tree } from '@nrwl/devkit';
+import { addDependenciesToPackageJson, installPackagesTask, logger, readJson, Tree } from '@nx/devkit';
 
 export const ANGULAR_THREE_POSTPROCESSING_VERSION = '^1.0.0';
 export const POSTPROCESSING_VERSION = '^6.0.0';

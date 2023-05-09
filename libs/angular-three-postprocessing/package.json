@@ -29,8 +29,8 @@
         "three": "^0.148.0 || ^0.149.0 || ^0.150.0 || ^0.151.0"
     },
     "dependencies": {
-        "@nrwl/devkit": "^15.0.0",
-        "tslib": "^2.3.0"
+        "tslib": "^2.3.0",
+        "@nx/devkit": "^15.0.0"
     },
     "sideEffects": false,
     "generators": "./plugin/generators.json",

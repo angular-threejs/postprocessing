@@ -1,5 +1,13 @@
 
 
+## [1.6.0](https://github.com/angular-threejs/postprocessing/compare/1.5.2...1.6.0) (2023-05-09)
+
+
+### Features
+
+* update angular-three ([f68d230](https://github.com/angular-threejs/postprocessing/commit/f68d230551e8f20a3fcac7e78c181d924a424e78))
+* upgrade nx ([019f94d](https://github.com/angular-threejs/postprocessing/commit/019f94d5d702585958e60857d11f38f73bfd1ab8))
+
 ### [1.5.2](https://github.com/angular-threejs/postprocessing/compare/1.5.1...1.5.2) (2023-04-02)
 
 ### [1.5.1](https://github.com/angular-threejs/postprocessing/compare/1.5.0...1.5.1) (2023-02-28)
